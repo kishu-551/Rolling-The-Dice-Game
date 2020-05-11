@@ -1,0 +1,48 @@
+# creating a Rolling Dice game
+#if you got a 6 in a game you are provided a bonous chance in a game for a single time in a game
+
+import random
+def main():
+# There are two players in the game i.e(player1 and player2)
+    player1=0
+    player2=0
+    rounds=1
+#You can play how much Round you want(depend on your choice)    
+    while(rounds!=5):
+        sum1=0
+        sum2=0
+#these two variables are being used to collect points in each game(i.e sum1 and sum2)        
+        print("round-"+str(rounds))
+        player1=diceroll()
+        sum1+=player1
+#bonous chance with the help of conditonal statements(if,else,elif)        
+        if(player1==6):
+            player1=diceroll()
+            sum1+=player1
+        player2=diceroll()
+        sum2+=player2
+        if(player2==6):
+            player2=diceroll()
+            sum2+=player2
+        print("Points of player 1-:"+str(sum1))
+        print("Points of player 2-:"+str(sum2))
+        rounds=rounds+1
+#Declaration of the winning Team        
+        if(sum1>sum2):
+            print("player-1 is the Winner ")
+        elif(sum1==sum2):
+            print("Match is Drawn between them ")
+        else:
+            print("player-2 is the Winner ")
+# Generation of the output of the Dice after a throw            
+def diceroll():
+    dice_roll=random.randint(1,6)
+    return(dice_roll)
+        
+main()    
+    
+
+    
+
+
+        
